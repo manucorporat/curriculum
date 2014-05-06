@@ -34,8 +34,13 @@
 ###[TinySpark IO](http://tinyspark.io)
 **iOS lead developer** in San Francisco. January 2014 - Present
 
-- Design and implement **iOS SDK from scratch**.
-- Work with the engineering team improving security, REST API design and rendering issues.
+- Design and implement **iOS SDK from scratch**:
+- Make iOS developers happy with a easy and well designed framework.
+- Work with the engineering team improving security and REST API design.
+- Implement and maintain iOS native plugin for Unity.
+- Improve the rendering performance of the HTML5 game provided by TinySpark.
+- Integrate and test In-App-Purchases for several iOS products.
+- Git hacker
 
 ===
 

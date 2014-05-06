@@ -1,0 +1,637 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%;
+  float:right; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 800px) {
+    body {
+        width: 700px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<title>CV</title>
+
+</head>
+<body>
+<h1>CV</h1>
+
+<p><strong>Name:</strong> Manu Martínez-Almeida<br/>
+<strong>Email:</strong> <a href="mailto:manu.valladolid@gmail.com">manu.valladolid@gmail.com</a><br/>
+<strong>Website:</strong> <a href="http://forzefield.com/index.php?section=aboutus">forzefield.com</a><br/>
+<strong><em>Github:</em></strong> <a href="https://github.com/manucorporat">manucorporat</a><br/>
+<strong>Skype:</strong> manucorporat<br/>
+<strong>Phone:</strong> +1 (650) 931-7530<br/>
+<strong>Languages:</strong>  Native Spanish and fluent English</p>
+
+<h2>Areas of experience</h2>
+
+<ul>
+<li>5 years. Object oriented paradigm</li>
+<li>5 years. C Language</li>
+<li>5 years. Objective-C</li>
+<li>5 years. iOS/OSX development</li>
+<li>4 years. Game development</li>
+<li>3 years. High performance and 2D engines</li>
+<li>3 years. SDK and API development</li>
+<li>3 years. OpenGL</li>
+<li>2 years. C++ Language</li>
+<li>2 years. Git</li>
+<li>2 years. Project management</li>
+<li>2 years. Cryptography</li>
+<li>1 year. RestAPI design</li>
+<li>1 year. Network security</li>
+<li>1 year. User experience</li>
+</ul>
+
+
+<p>.</p>
+
+<h2>Professional experience</h2>
+
+<h3><a href="http://tinyspark.io">TinySpark IO</a></h3>
+
+<p><strong>iOS lead developer</strong> in San Francisco. January 2014 - Present</p>
+
+<ul>
+<li>Design and implement <strong>iOS SDK from scratch</strong>:</li>
+<li>Make iOS developers happy with a easy and well designed framework.</li>
+<li>Work with the engineering team improving security and REST API design.</li>
+<li>Implement and maintain iOS native plugin for Unity.</li>
+<li>Improve the rendering performance of the HTML5 game provided by TinySpark.</li>
+<li>Integrate and test In-App-Purchases for several iOS products.</li>
+<li>Git hacker</li>
+</ul>
+
+
+<hr />
+
+<h3><a href="http://openkit.io">OpenKit IO</a></h3>
+
+<p><strong>Lead developer</strong> in San Francisco. October 2013 - January 2014</p>
+
+<ul>
+<li>Design and maintain a <strong>new SDK for iOS</strong>.</li>
+<li>Design and implementation of secure communication between the frontend application and OpenKit's hosted web services.</li>
+<li>Performing architecture of OpenKit's software backend to extend its functionality.</li>
+<li>Running schema and data migrations on OpenKit's data stores (mysql database, redis key/value store).</li>
+</ul>
+
+
+<hr />
+
+<h3><a href="http://getjoypad.com">Joypad Inc.</a></h3>
+
+<p><strong>Core developer</strong> in San Francisco. Summer 2012</p>
+
+<ul>
+<li>API redesign for the Joypad's SDK: I proposed and implemented a consistent, stable and easy-to-use API in Objective-C.</li>
+<li><strong>Refactorization of the library's core</strong>.</li>
+<li>Active support for developers who wanted to integrate their games with Joypad.</li>
+<li>Performance and debugging tests: latency, connection, bandwidth and CPU usage.</li>
+<li>Bug fixing in Joypad Game Console.</li>
+<li>Experimental project between cocos2d and Joypad.</li>
+</ul>
+
+
+<hr />
+
+<h3><a href="http://forzefield.com">Forzefield SL.</a></h3>
+
+<p><strong>Founder and CTO</strong> in Valladolid, Spain. 2010 - Present</p>
+
+<ul>
+<li>Founder of <em>FORZEFIELD Studios S.L.</em></li>
+<li>Development of <em>Infinity Field</em> for iPad and iPhone.</li>
+<li><strong>Partnership with <em><a href="http://chillingo.com">Chillingo Ltd</a></em></strong>.</li>
+<li>Website for forzefield.com.</li>
+<li>Monetization strategies.</li>
+<li>Apple's approval process.</li>
+<li>Press assets</li>
+</ul>
+
+
+<p>.</p>
+
+<h2>Projects</h2>
+
+<h3>Open source</h3>
+
+<ul>
+<li><p><a href="http://www.cocos2d-iphone.org/forums/users/manucorporat/"><strong>Cocos2d's contributor</strong></a><br/>
+<strong>Second most active contributor</strong> to the "cocos2d-iphone" engine (0.x series).</p></li>
+<li><p><a href="https://github.com/manucorporat/FORZE2D"><strong>FORZE 2D</strong></a><br/>
+Lead developer of an innovative <strong>C++ cross platform engine</strong> based in cocos2D.</p></li>
+<li><p><a href="http://forzefield.com/ElectricField.zip"><strong>Real time Electric Field GPU simulation</strong></a><br/>
+An experimental example of <strong>how to use OpenGL for physical simulations</strong>.<br/>
+All the simulation runs concurrently in the GPU using my own engine as the rendering layer.</p></li>
+<li><p><a href="https://github.com/manucorporat"><strong>Minor projects</strong></a><br/>
+See my github profile. @manucorporat</p></li>
+</ul>
+
+
+<hr />
+
+<h3><a href="https://itunes.apple.com/us/app/infinity-field-hd/id391766089?mt=8">Infinity Field</a> (AppStore)</h3>
+
+<p><strong>2010 - Present</strong></p>
+
+<ul>
+<li>Freelance project. Both, programming and design were done by me.</li>
+<li>Project in <strong>partnership with Chillingo Ltd</strong> (EA Mobile).</li>
+<li>Coordination with external contractors (music composer and sound engineer).</li>
+<li>Debugging and polishing process with a team of beta testers.</li>
+<li>Press and promotional assets.</li>
+<li>cocos2d-iphone.</li>
+</ul>
+
+
+<hr />
+
+<h3><a href="https://itunes.apple.com/us/app/joypad-game-console/id533311103?mt=8">Joypad Game Console</a> (AppStore)</h3>
+
+<p><strong>2012</strong></p>
+
+<p>The Game Console turns the iPad into a dashboard that lists all of the Joypad enabled apps. It's like an <strong>iOS version of Xbox Live</strong>, containing a list of featured games, a list of games that are already installed on the iPad, and a full list of all games that Joypad supports.</p>
+
+<hr />
+
+<h3><a href="http://getjoypad.com/developers/">Joypad SDK</a></h3>
+
+<p><strong>2012</strong></p>
+
+<ul>
+<li>Turn your iPad into a game console.</li>
+<li>Made extensive use of Grand Central Dispatch so that the Joypad framework would never block application code.</li>
+<li>Core library that implementes a <strong>propietary UDP protocol</strong> for real time input (latency below 10ms).</li>
+<li>Integration in my game, Infinity Field.</li>
+</ul>
+
+
+<hr />
+
+<h3><a href="http://forzefield.com/tinyspark/index.html">TinySpark SDK</a></h3>
+
+<p><strong>2013 - 2014</strong></p>
+
+<ul>
+<li><strong>Real Money</strong> Sweepstakes for Mobile Apps.</li>
+<li>Track user retention and analytics.</li>
+<li>Working with publishers to integrate it.</li>
+</ul>
+
+
+<hr />
+
+<h3><a href="http://blog.forzefield.com/category/abstractwar/">AbstractWar 2.0</a> (AppStore)</h3>
+
+<p><strong>2008 - 2009</strong></p>
+
+<ul>
+<li><strong>Freelance project</strong>.</li>
+<li>My first serious game developed for iOS.</li>
+<li>It was published in the AppStore, not anymore.</li>
+</ul>
+
+
+<p>.</p>
+
+<h2>Skills</h2>
+
+<h4>Extensive knowledge in SDK development for iOS</h4>
+
+<p>I have been working in the development of <strong>5 SDKs for iOS</strong>. I know what developers want and how to make it elegant, stable and easy to maintain and understand. Dealing with Apple's frameworks, backcompatibility and debugging.</p>
+
+<h4>Extensive knowledge in C, C++ and Objective-C</h4>
+
+<ul>
+<li>Coding and style standards.</li>
+<li>Design algorithms understanding how compilers and processors work.</li>
+<li>High performance: single and multicore design and memory management (fragmentation, aligment, cache access).</li>
+<li>Expertise with imperative, object-oriented and event-oriented paradigms.</li>
+</ul>
+
+
+<h4>Extensive knowledge in real-time 2D rendering</h4>
+
+<p>As one of the main developers of cocos2d, I got a lot of experience in OpenGL and in the techniques used by the engines to reduce the GPU/CPU usage. I began in 2011 the development of an innovative new <strong>graphic engine</strong> called <em>FORZE2D</em> (see my github).</p>
+
+<h4>Techniques</h4>
+
+<ul>
+<li>Cross platform design patterns.</li>
+<li>Agile.</li>
+<li>Broad experience debugging code for iOS and OSX.</li>
+</ul>
+
+
+<h4>Libraries and frameworks</h4>
+
+<ul>
+<li>Apple's frameworks</li>
+<li>OpenGL (ES-1.0/2.0 and 3.0)</li>
+<li>C/C++ STL</li>
+<li>Cocos2D</li>
+<li>Oauth</li>
+<li>MongoDB</li>
+</ul>
+
+
+<h4>Other languages</h4>
+
+<ul>
+<li>Python (college)</li>
+<li>Java (college and Android experiments)</li>
+<li>GLSL (OpenGL Shading Language)</li>
+<li>Bash scripting</li>
+<li>Assembly (ARMv7 and MIPS)</li>
+<li>PHP</li>
+<li>HTML+CSS</li>
+<li>Ruby (brief experience working in Openkit)</li>
+<li>Notions of MySQL syntax.</li>
+</ul>
+
+
+<p>.</p>
+
+<h2>Areas of interest</h2>
+
+<p>My areas of interest are conditioned by my <strong>background in game development</strong>.
+That's the reason I am focused on high performance code, advanced opengl stuff, API design, security and monetization. I like to create great products and write good software.</p>
+
+<h4>SDK and API development</h4>
+
+<p><strong>I want to make the best software ever</strong>, and see how it runs in millions of devices across the world.</p>
+
+<h4>Game engines and real-time rendering</h4>
+
+<p>The research of techniques for real-time rendering.</p>
+
+<ul>
+<li><strong>Engine architecture</strong>: Reducing draw calls, dynamic texturing, auto-batching elements.</li>
+<li>OpenGL: Optimizing pipeline, shaders, post-processing effects, etc.</li>
+<li>Math + algorithms: Hardware accelerated functions(NEON in ARM), vertex manipulation, caching.</li>
+</ul>
+
+
+<h4>Game development</h4>
+
+<ul>
+<li>The <strong>research of APIs</strong> for game development.</li>
+<li>Cross platform design.</li>
+<li>Fast prototyping.</li>
+<li>Efficient assets management..</li>
+</ul>
+
+
+<h4>Security</h4>
+
+<ul>
+<li>Stablising trusted and secure connections between server and clients.</li>
+<li>Local cheating: Implementing safe local storage and <strong>preventing memory cheating</strong> are some examples (see the <em>OBME</em> project is my github).</li>
+</ul>
+
+
+<h4>High performance</h4>
+
+<p>I spend many time optimizing, refactoring or even adapting algorithms to run concurrently. In the development of <strong>Infinity Field</strong>, I did a lot of reseach to run a graphic-intense game smoothly in old iOS devices.</p>
+
+<h4>Networking</h4>
+
+<p>Recently, I started learning networking stuff seriously. Turn-based multiplayer, cloud storage, integration with social networks.</p>
+
+<p>.</p>
+
+<h2>Press and achievements</h2>
+
+<h4>Infinity Field mentions</h4>
+
+<ul>
+<li>Featured by Apple as <strong>"iPad Game of the Week"</strong>.</li>
+<li><p><strong>Top 10 in USA</strong>, Russia and Spain.</p></li>
+<li><p>5/5 — <em>GamePro</em></p>
+
+<blockquote><p>A classic that shouldn't be missed by old-schoolers who love pure, classic, unadulterated arcade blasting.</p></blockquote></li>
+<li><p>4/4 — <em>SlideToPlay</em></p>
+
+<blockquote><p>A wide range of endless modes, beautiful production values, and multiplayer make this the Geometry Wars clone to beat.</p></blockquote></li>
+<li><p>4.5/5 — <em>148Apps</em></p>
+
+<blockquote><p>This is one of the best dual-stick shooters for the iPad, and is definitely worth a look if you need a good action game on your iPad.</p></blockquote></li>
+</ul>
+
+
+<h4>Interviews:</h4>
+
+<ul>
+<li><a href="http://www.youtube.com/watch?v=szFzOleBsy8">Personal interview in TVE</a> (spanish)</li>
+<li><a href="http://www.elpais.com/articulo/portada/estudiante/vallisoletano/anos/crea/juego/iPhone/elpepisupcib/20100318elpcibpor_9/Tes/">Personal interview in ELPAÍS</a> (spanish)</li>
+<li><a href="http://www.elnortedecastilla.es/v/20100315/valladolid/empresario-anos-20100315.html">Personal interview in El Norte de Castilla</a> (spanish)</li>
+<li><a href="http://www.antena3noticias.com/PortalA3N/ciencia-y-tecnologia/Apple-cuelga-tienda-virtual-videojuego-creado-por-adolescente-espanol/10193427">Personal interview in Antena3</a> (spanish)</li>
+<li><a href="http://www.elpais.com/articulo/portada/estudiante/vallisoletano/anos/crea/juego/iPhone/elpepisupcib/20100318elpcibpor_9/Tes/">Personal interview in ELMUNDO</a> (spanish)</li>
+<li><a href="http://www.gamezebo.com/news/2011/02/02/infinity-16-interview-16-year-old-infinity-field-developer-manuel-martinez-almeida">Personal interview in GameZebo</a> (english)</li>
+</ul>
+
+
+<p>.</p>
+
+<h2><strong>Education</strong></h2>
+
+<h3>Bachelor of Computer Science expected 2017</h3>
+
+<p><strong>University of Valladolid.</strong> Spain, 2012 - Present</p>
+</body>
+</html>
