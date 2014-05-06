@@ -5,7 +5,8 @@
 **Website:** [forzefield.com](http://forzefield.com/index.php?section=aboutus)  
 ***Github:*** [manucorporat](https://github.com/manucorporat)  
 **Skype:** manucorporat  
-**Phone:** +1 (650) 931-7530  
+**Phone US:** +1 (650) 931-7530  
+**Phone EU:** +34 689 095 008  
 **Languages:**  Native Spanish and fluent English  
 
 
